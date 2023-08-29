@@ -1,5 +1,8 @@
 .faq {
     padding: 5.6vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     h2 {
         text-align: center;
@@ -21,6 +24,10 @@
                 cursor: pointer;
                 position: relative;
 
+                @media (max-width:768px) {
+                    font-size: 15px;
+                }
+
                 &::after {
                     content: '+';
                     position: absolute;
@@ -34,10 +41,10 @@
             }
 
             &__answer {
-                height: 0;
+                max-height: 0;
                 overflow: hidden;
                 padding: 0 24px;
-                transition: height, .5s ease;
+                transition: height, 1s ease;
 
                 ul {
                     padding-left: 40px;
@@ -47,7 +54,6 @@
                     
                     li {
                         padding-bottom: 16px;
-                        
                         
                         &:last-child {
                             padding: 0;
@@ -64,15 +70,28 @@
 
             &--is-open {
                 .faq__questions__item__question::after {
-                    content: '-';
+                    content: '–';
                 }
 
                 .faq__questions__item__answer {
                     padding-bottom: 24px;
+                    max-height: 700px;
+                    animation: fade 1s ease-in-out;
                     height: auto;
-                    transition: height, .5s ease;
+                    transition: height, 1s ease;
                 }
             }
         }
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
     }
 }
