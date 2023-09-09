@@ -1,9 +1,11 @@
 .plans {
     padding: 5.6vw;
+    list-style: none;
 
     h2 {
         text-align: center;
     }
+
 
     &__list {
         display: flex;
